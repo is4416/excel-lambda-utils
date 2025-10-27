@@ -1,0 +1,19 @@
+= LAMBDA(StartDate, EndDate, MinDate, MaxDate, LET(
+  Days          , INT(EndDate) - INT(StartDate),
+  StartTime     , MOD(StartDate, 1),
+  EndTime       , MOD(EndDate, 1),
+  MinTime       , MOD(MinDate, 1),
+  MaxTime       , MOD(MaxDate, 1),
+  UpperTime     , IF(EndDate > 1, 1, EndDate),
+  UpperLimit    , IF(MaxDate > 1, 1, MaxDate),
+  UpperFirst    , IF(UpperTime < UpperLimit, UpperTime, UpperLimit),
+  LowerLimit    , IF((INT(MaxDate) > 0) * (StartTime < MaxTime) = 1, 0, MinTime),
+  LowerFirst    , IF(StartTime < LowerLimit, LowerLimit, StartTime),
+  TimeOfFirstDay, IF(UpperFirst - LowerFirst > 0, UpperFirst - LowerFirst, 0),
+  TimeOfDays    , IF(Days > 1, (Days - 1) * (MaxDate - MinDate), 0),
+  UpperLast     , IF(MinTime > MaxTime, 0, MinTime),
+  LowerLast     , IF(EndTime < MaxTime, EndTime, MaxTime),
+  TimeOfLastDay , IF(Days > 0, IF(LowerLast - UpperLast > 0, LowerLast - UpperLast, 0), 0),
+  TimeOfFirstDay + TimeOfDays + TimeOfLastDay
+))
+
