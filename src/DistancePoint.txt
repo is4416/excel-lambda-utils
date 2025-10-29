@@ -1,0 +1,5 @@
+= LAMBDA(P1X, P1Y, P2X, P2Y,
+  SQRT(
+    (P1X - P2X)^2 + (P1Y - P2Y)^2
+  )
+)

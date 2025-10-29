@@ -1,0 +1,12 @@
+= LAMBDA(Points, LET(
+  RowCount  , ROWS(Points),
+  DoubleArea, MAP(SEQUENCE(RowCount),
+    LAMBDA(i, LET(
+        i_before, IF(i = 1, RowCount, i - 1),
+        i_after , IF(i = RowCount, 1, i + 1),
+        (INDEX(Points, i_after, 2) - INDEX(Points, i_before, 2)) * INDEX(Points, i, 1)
+      )
+    )
+  ),
+  SUM(DoubleArea) / 2
+))

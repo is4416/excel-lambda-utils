@@ -1,34 +1,40 @@
 # 🕒 Excel Lambda Utils
 
 このリポジトリは、Excel LAMBDA関数を使ったユーティリティ集です。  
-現在、時刻の重複計算用に `OverlapTime` 関数を公開しています。
+現在、以下の関数を公開しています。
+
+- **OverlapTime**   : 時間の重複計算
+- **DistancePoint** : 2次元座標間の距離
+- **PolygonArea**   : 座標による面積計算
 
 ## 📂 構成
 
 ```
 excel-lambda-utils/
-├── LICENSE                  ← MITライセンス
+├── LICENSE
+├── README.md
+├── TODO.md
 ├── docs/
-│   └── OverlapTime.md       ← 関数の詳細解説
+│   ├── OverlapTime.md
+│   ├── DistancePoint.md
+│   └── PolygonArea.md
 ├── examples/
-│   └── OverlapTime-example.txt ← 使用例
+│   ├── OverlapTime-example.txt
+│   ├── DistancePoint-example.txt
+│   └── PolygonArea-example.txt
 └── src/
-     └── OverlapTime.txt      ← LAMBDA関数本体
+     ├── OverlapTime.txt
+     ├── DistancePoint.txt
+     └── PolygonArea.txt
 ```
 
 ## 📖 ドキュメント
 
-`OverlapTime` 関数の詳しい解説は [docs/OverlapTime.md](docs/OverlapTime.md) を参照してください。
+それぞれの関数の詳しい解説は docs 内のファイルを参照してください。
 
 ## 📝 使用例
 
-OverlapTime という名前でブックに登録しているものとします。
-
-```excel
-= OverlapTime(A1:A10, B1:B10, TIMEVALUE("08:30"), TIMEVALUE("17:15"))
-```
-
-※ スピルにも対応しています。
+それぞれの関数の使用例は examples 内のファイルを参照してください。
 
 ## ⚖️ ライセンス
 
