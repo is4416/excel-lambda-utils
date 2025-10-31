@@ -9,6 +9,6 @@ Excel LAMBDA 関数によるユーティリティ集の開発タスク一覧で�
 
 ## ✅ 完了済み
 
-- [X] **OverlapTime**   関数の初期実装  
-- [X] **DistancePoint** 関数の実装 (docs/examples/src)
-- [X] **PolygonArea**   関数の実装 (docs/examples/src)
+- [X] **OverlapTime**   関数の実装  
+- [X] **DistancePoint** 関数の実装
+- [X] **PolygonArea**   関数の実装
