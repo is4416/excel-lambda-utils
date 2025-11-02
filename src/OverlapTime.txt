@@ -9,7 +9,7 @@
   TimeOfOneDay, MaxT - MinT + IF(MinT < MaxT, 0, 1),
   TimeOfDays  , (Days - 1) * TimeOfOneDay,
 
-  FirstDayUpperLimit, IF(Days > 0, 1, MaxT),
+  FirstDayUpperLimit, IF(MinT >= MaxT, 1, MaxT),
   FirstDayUpperTime , IF(Days > 0, 1, EndTime),
   FirstDayUpper     , IF(FirstDayUpperLimit < FirstDayUpperTime,
     FirstDayUpperLimit, FirstDayUpperTime
@@ -17,16 +17,15 @@
   FirstDayLower , IF(StartTime < MinT, MinT, StartTime),
   TimeOfFirstDay, FirstDayUpper - FirstDayLower,
 
-  LastDayLowerLimit, IF(Days > 0, 0, MinT),
+  LastDayLowerLimit, IF(MinT >= MaxTime, 0, MinT),
   LastDayLowerTime , IF(StartTime < EndTime, StartTime, 0),
   LastDayLower     , IF(LastDayLowerLimit < LastDayLowerTime,
-    LastDayLowerTime,
-    LastDayLowerLimit
+    LastDayLowerTime, LastDayLowerLimit
   ),
   LastDayUpper , IF(MaxT < EndTime, MaxT, EndTime),
   TimeOfLastDay, IF(Days > 0, LastDayUpper - LastDayLower, 0),
 
-  IF(TimeOfFirstDay < 0, 0, TimeOfFirstDay) + 
-  IF(TimeOfDays < 0, 0, TimeOfDays) + 
+  IF(TimeOfFirstDay < 0, 0, TimeOfFirstDay) +
+  IF(TimeOfDays < 0, 0, TimeOfDays) +
   IF(TimeOfLastDay < 0, 0, TimeOfLastDay)
 ))
