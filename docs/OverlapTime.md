@@ -40,10 +40,7 @@
     FirstDayUpperLimit, FirstDayUpperTime
   ),
   FirstDayLower , IF(StartTime < MinT, MinT, StartTime),
-  TimeOfFirstDay, IF(FirstDayLower < FirstDayUpper,
-    FirstDayUpper - FirstDayLower,
-    0
-  ),
+  TimeOfFirstDay, FirstDayUpper - FirstDayLower,
 
   LastDayLowerLimit, IF(Days > 0, 0, MinT),
   LastDayLowerTime , IF(StartTime < EndTime, StartTime, 0),
@@ -52,12 +49,11 @@
     LastDayLowerLimit
   ),
   LastDayUpper , IF(MaxT < EndTime, MaxT, EndTime),
-  TimeOfLastDay, IF(LastDayLower < LastDayUpper,
-    LastDayUpper - LastDayLower,
-    0
-  ),
+  TimeOfLastDay, IF(Days > 0, LastDayUpper - LastDayLower, 0),
 
-  TimeOfFirstDay + TimeOfDays + TimeOfLastDay
+  IF(TimeOfFirstDay < 0, 0, TimeOfFirstDay) + 
+  IF(TimeOfDays < 0, 0, TimeOfDays) + 
+  IF(TimeOfLastDay < 0, 0, TimeOfLastDay)
 ))
 ```
 
