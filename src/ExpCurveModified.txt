@@ -2,6 +2,7 @@
   Limit, IF(L = "", MAX(YRange), L),
   Y    , MAP(YRange, LAMBDA(val, LN(Limit - val))),
   Res  , LINEST(Y, XRange),
-  k    , INDEX(Res, 1),
-  Limit - (Limit - INDEX(YRange, 1)) * EXP(- k * x)
+  k    , - INDEX(Res, 1),
+  yo   , Limit - EXP(INDEX(Res, 2)),
+  Limit - (Limit - yo) * EXP(-k * x)
 ))

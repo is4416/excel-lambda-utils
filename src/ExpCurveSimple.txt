@@ -1,7 +1,7 @@
 ExpCurveSimple= LAMBDA(XRange, YRange, x, LET(
-  y0  , INDEX(YRange, 1),
-  LnY , MAP(YRange, LAMBDA(val, LN(val))),
-  Res , LINEST(LnY, XRange),
-  k   , INDEX(Res, 1),
-  y0 * EXP(k * x)
+  LnY, MAP(YRange, LAMBDA(val, LN(val))),
+  Res, LINEST(LnY, XRange),
+  k  , INDEX(Res, 1),
+  yo , EXP(INDEX(Res, 2)),
+  yo * EXP(k * x)
 ))
