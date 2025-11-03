@@ -1,0 +1,8 @@
+= LAMBDA(XRange, YRange, x, LET(
+  LnX, MAP(XRange, LAMBDA(val, LN(val))),
+  LnY, MAP(YRange, LAMBDA(val, LN(val))),
+  Res, LINEST(LnY, LnX),
+  a  , EXP(INDEX(Res, 2)),
+  b  , INDEX(Res, 1),
+  a * x^b
+))

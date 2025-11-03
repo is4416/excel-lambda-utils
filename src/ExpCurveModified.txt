@@ -1,0 +1,7 @@
+= LAMBDA(XRange, YRange, L, x, LET(
+  Limit, IF(L = "", MAX(YRange), L),
+  Y    , MAP(YRange, LAMBDA(val, LN(Limit - val))),
+  Res  , LINEST(Y, XRange),
+  k    , INDEX(Res, 1),
+  Limit - (Limit - INDEX(YRange, 1)) * EXP(- k * x)
+))
