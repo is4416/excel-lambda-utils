@@ -1,0 +1,35 @@
+= LAMBDA(Text, LET(
+  Buf       , TRIM(Text),
+  OuterLeft , LEFT(Buf, 1),
+  OuterRight, RIGHT(Buf, 1),
+  S, IF(OR(
+    AND(OuterLeft = "{", OuterRight = "}"),
+    AND(OuterLeft = "[", OuterRight = "]")
+  ), MID(Buf, 2, LEN(Buf) - 2), Buf),
+  NumberList, SEQUENCE(LEN(S)),
+  Result    , REDUCE(
+    { {}, "", False },
+    NumberList,
+    LAMBDA(acc, i, LET(
+      List   , INDEX(acc, 1),
+      Buf    , INDEX(acc, 2),
+      Flag   , INDEX(acc, 3),
+      C      , MID(S, i, 1),
+      Esc    , IF(i > 1, MID(S, i - 1, 1) = "\", False),
+      NewFlag, IF(AND(C = """", NOT(Esc)), NOT(Flag), Flag),
+      NewList, IF(OR(AND(C = ",", NewFlag = False), i = LEN(S)),
+        VSTACK(List, Buf),
+        List
+      ),
+      NewBuf , IF(OR(C = ",", AND(C = """", NOT(NewFlag))),
+        "",
+        IF(Esc,
+          LEFT(Buf, MAX(0, LEN(Buf) - 1)) & C,
+          Buf & C
+        )
+      ),
+      { NewList, NewBuf, NewFlag }
+    ))
+  ),
+  INDEX(Result, 1)
+))
