@@ -11,6 +11,7 @@
 - **ExpCurveModified**: 修正指数曲線を作成し、結果を計算
 - **LogisticCurve**   : ロジスティック曲線を作成し、結果を計算
 - **SmartSplit**      : CSV/JSON風文字列を、ダブルクォートとエスケープを考慮して安全に分割
+- **SmartJoin**       : 範囲から、CSV風文字列を作成。ダブルクォートで囲い、["] は [""] に置き換える
 
 ## 📂 構成
 
@@ -27,7 +28,8 @@ excel-lambda-utils/
 │   ├── ExpCurveSimple.md
 │   ├── ExpCurveModified.md
 │   ├── LogisticCurve.md
-│   └── SmartSplit.md
+│   ├── SmartSplit.md
+│   └── SmartJoin.md
 ├── examples/
 │   ├── OverlapTime-example.txt
 │   ├── DistancePoint-example.txt
@@ -36,7 +38,8 @@ excel-lambda-utils/
 │   ├── ExpCurveSimple-example.txt
 │   ├── ExpCurveModified-example.txt
 │   ├── LogisticCurve-example.txt
-│   └── SmartSplit-example.txt
+│   ├── SmartSplit-example.txt
+│   └── SmartJoin-example.txt
 └── src/
      ├── OverlapTime.txt
      ├── DistancePoint.txt
@@ -45,7 +48,8 @@ excel-lambda-utils/
      ├── ExpCurveSimple.txt
      ├── ExpCurveModified.txt
      ├── LogisticCurve.txt
-     └── SmartSplit.txt
+     ├── SmartSplit.txt
+     └── SmartJoin.txt
 ```
 
 ## 📖 ドキュメント
