@@ -1,0 +1,7 @@
+= LAMBDA(Rng, BYROW(
+  Rng,
+  LAMBDA(
+    Line,
+    TEXTJOIN(",", FALSE, """" & SUBSTITUTE(Line, """", """""") & """")
+  )
+))
