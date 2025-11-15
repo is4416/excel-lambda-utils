@@ -24,38 +24,28 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
 ```excel
 = LAMBDA(S, LET(
   S_Count, LEN(S),
-  S_List, SEQUENCE(S_Count),
+  S_List , SEQUENCE(S_Count),
 
-  QuotList, MAP(
-    S_List,
-    LAMBDA(i, LET(
-      C, MID(S, i, 1),
-      PrevC, IF(i = 1, "", MID(S, i - 1, 1)),
-      NextC, IF(i = LEN(S), "", MID(S, i + 1, 1)),
-      IF(AND(C = """", PrevC <> """", NextC <> """"), i, 0)
-    ))
-  ),
-  CleanQuotList, FILTER(QuotList, QuotList > 0),
+  QuotList, FILTER(S_List, MID(S, S_List, 1) = """"),
 
-  Q_Count, ROWS(CleanQuotList),
-  Q_List, SEQUENCE(CEILING(Q_Count / 2, 1)),
+  Q_Count, ROWS(QuotList),
+  Q_List , SEQUENCE(CEILING(Q_Count / 2, 1)),
 
   EscapeAreas_Start, IF(Q_Count = 0, Q_List, MAP(
     Q_List,
-    LAMBDA(i, INDEX(CleanQuotList, (i - 1) * 2 + 1))
+    LAMBDA(i, INDEX(QuotList, (i - 1) * 2 + 1))
   )),
-
   EscapeAreas_End, IF(Q_Count = 0, Q_List, MAP(
     Q_List,
-    LAMBDA(i, IF(i * 2 > Q_Count, 0, INDEX(CleanQuotList, i * 2)))
+    LAMBDA(i, IF(i * 2 > Q_Count, 0, INDEX(QuotList, i * 2)))
   )),
 
   DelimiterList, MAP(
     S_List,
-    LAMBDA(i, IF(i = S_Count, i, LET(
-      c, MID(S, i, 1),
-      IF(c = ",", i, 0)
-    )))
+    LAMBDA(i, IF(i = S_Count,
+      i,
+      IF(MID(S, i, 1) = ",", i, 0)
+    ))
   ),
 
   DelimiterFlags, MAP(
@@ -67,24 +57,22 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
   ),
   CleanDelimiterList, FILTER(DelimiterList, DelimiterFlags),
 
-  TextList, TRIM(MAP(
+  TRIM(MAP(
     SEQUENCE(ROWS(CleanDelimiterList)),
     LAMBDA(i, LET(
       Start, IF(i = 1, 1, INDEX(CleanDelimiterList, i - 1) + 1),
-      Size, INDEX(CleanDelimiterList, i) - Start + 1,
-      Buf, TRIM(MID(S, Start, Size)),
-      Item, IF(i = ROWS(CleanDelimiterList), Buf, MID(Buf, 1, LEN(Buf) - 1)),
-      L, IF(LEN(Item) > 0, LEFT(Item, 1), ""),
-      R, IF(LEN(Item) > 1, RIGHT(Item, 1), ""),
+      Size , INDEX(CleanDelimiterList, i) - Start + 1,
+      Buf  , TRIM(MID(S, Start, Size)),
+      Item , IF(i = ROWS(CleanDelimiterList), Buf, MID(Buf, 1, LEN(Buf) - 1)),
+      L    , IF(LEN(Item) > 0, LEFT(Item, 1), ""),
+      R    , IF(LEN(Item) > 1, RIGHT(Item, 1), ""),
       SUBSTITUTE(
         IF(AND(L = """", R = """"), MID(Item, 2, LEN(Item) - 2), Item),
         """""",
         """"
       )
     ))
-  )),
-
-  TextList
+  ))
 ))
 ```
 
@@ -92,16 +80,14 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
 
 - S_Count           : Number, S の文字数（LEN(S)）
 - S_List            : Range, 1〜S_Count の連番（SEQUENCE(S_Count)）で各文字位置を走査
-- QuotList          : Range, 各文字が単独の "（直前も直後も " でない）ならその位置、そうでなければ 0
-- CleanQuotList     : Range, QuotList から 0 を除いた実際のクォート位置の一覧
-- Q_Count           : Number, クォートの出現数（ROWS(CleanQuotList)）
+- QuotList          : Range, 各文字が " ならその位置、そうでなければ 0（すべての " を拾う）
+- Q_Count           : Number, QuotList に含まれる " の数（ROWS(QuotList)）
 - Q_List            : Range, 開始・終了ペア処理用のインデックス配列（SEQUENCE(CEILING(Q_Count / 2, 1))）
-- EscapeAreas_Start : Range, クォートで囲まれた範囲（エスケープ領域）の開始位置の一覧
-- EscapeAreas_End   : Range, クォートで囲まれた範囲（エスケープ領域）の終了位置の一覧
+- EscapeAreas_Start : Range, 偶数・奇数ペアで決まる、引用（エスケープ）領域の開始位置一覧
+- EscapeAreas_End   : Range, 偶数・奇数ペアで決まる、引用（エスケープ）領域の終了位置一覧
 - DelimiterList     : Range, 各文字がカンマならその位置、そうでなければ 0。最終文字位置も含む
-- DelimiterFlags    : Range, 各カンマがクォート外にある場合のみ TRUE（内側は FALSE）
-- CleanDelimiterList: Range, DelimiterList から FALSE の位置を除いた実際の区切り位置の一覧
-- TextList          : Range, 各区切りで抽出した最終的な文字列配列（スピル出力）
+- DelimiterFlags    : Range, 各カンマが 引用外にある場合のみ TRUE、引用内は FALSE
+- CleanDelimiterList: Range, DelimiterList から FALSE の位置を除いた、実際の区切り（カンマ）位置の一覧
 
 **使用例**
 
@@ -115,7 +101,6 @@ SmartSplit という名前でブックに登録しているものとします。
 | ----------------- | ------------------ |
 | `["A","B","C"]`   | A<br>B<br>C        |
 | `["A,B","C"]`     | A,B<br>C           |
-| `{"X", "Y", "Z"}` | X<br>Y<br>Z        |
 
 **応用例**
 

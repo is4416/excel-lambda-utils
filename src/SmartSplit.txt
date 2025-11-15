@@ -6,36 +6,26 @@
   S_Count, LEN(S),
   S_List, SEQUENCE(S_Count),
 
-  QuotList, MAP(
-    S_List,
-    LAMBDA(i, LET(
-      C, MID(S, i, 1),
-      PrevC, IF(i = 1, "", MID(S, i - 1, 1)),
-      NextC, IF(i = LEN(S), "", MID(S, i + 1, 1)),
-      IF(AND(C = """", PrevC <> """", NextC <> """"), i, 0)
-    ))
-  ),
-  CleanQuotList, FILTER(QuotList, QuotList > 0),
+  QuotList, FILTER(S_List, MID(S, S_List, 1) = """"),
 
-  Q_Count, ROWS(CleanQuotList),
+  Q_Count, ROWS(QuotList),
   Q_List, SEQUENCE(CEILING(Q_Count / 2, 1)),
 
   EscapeAreas_Start, IF(Q_Count = 0, Q_List, MAP(
     Q_List,
-    LAMBDA(i, INDEX(CleanQuotList, (i - 1) * 2 + 1))
+    LAMBDA(i, INDEX(QuotList, (i - 1) * 2 + 1))
   )),
-
   EscapeAreas_End, IF(Q_Count = 0, Q_List, MAP(
     Q_List,
-    LAMBDA(i, IF(i * 2 > Q_Count, 0, INDEX(CleanQuotList, i * 2)))
+    LAMBDA(i, IF(i * 2 > Q_Count, 0, INDEX(QuotList, i * 2)))
   )),
 
   DelimiterList, MAP(
     S_List,
-    LAMBDA(i, IF(i = S_Count, i, LET(
-      c, MID(S, i, 1),
-      IF(c = ",", i, 0)
-    )))
+    LAMBDA(i, IF(i = S_Count,
+      i,
+      IF(MID(S, i, 1) = ",", i, 0)
+    ))
   ),
 
   DelimiterFlags, MAP(
@@ -47,7 +37,7 @@
   ),
   CleanDelimiterList, FILTER(DelimiterList, DelimiterFlags),
 
-  TextList, TRIM(MAP(
+  TRIM(MAP(
     SEQUENCE(ROWS(CleanDelimiterList)),
     LAMBDA(i, LET(
       Start, IF(i = 1, 1, INDEX(CleanDelimiterList, i - 1) + 1),
@@ -62,9 +52,7 @@
         """"
       )
     ))
-  )),
-
-  TextList
+  ))
 ))
 
 ' ---------- ---------- ----------
