@@ -23,7 +23,7 @@
 **コード**
 
 ```excel
-= LAMBDA(StartDate, EndDate, MinTime, MaxTime, LET(
+= LAMBDA(StartDate,EndDate,MinTime,MaxTime, LET(
   StartTime, MOD(StartDate, 1),
   EndTime  , MOD(EndDate, 1),
   MinT     , MOD(MinTime, 1),
@@ -34,23 +34,35 @@
   TimeOfOneDay, MaxT - MinT + IF(MinT < MaxT, 0, 1),
   TimeOfDays  , (Days - 1) * TimeOfOneDay,
 
-  FirstDayUpperLimit, IF(MinT >= MaxT, 1, MaxT),
+  FirstDayUpperLimit, MaxT,
   FirstDayUpperTime , IF(Days > 0, 1, EndTime),
   FirstDayUpper     , IF(FirstDayUpperLimit < FirstDayUpperTime,
     FirstDayUpperLimit, FirstDayUpperTime
   ),
-  FirstDayLower , IF(StartTime < MinT, MinT, StartTime),
+
+  FirstDayLowerLimit, IF(MinT >= MaxT, 0, MinT),
+  FirstDayLowerTime , StartTime,
+  FirstDayLower     , IF(FirstDayLowerLimit < FirstDayLowerTime,
+    FirstDayLowerTime, FirstDayLowerLimit
+  ),
   TimeOfFirstDay, FirstDayUpper - FirstDayLower,
 
-  LastDayLowerLimit, IF(MinT >= MaxTime, 0, MinT),
+  TimeOfFirstDayBefore, IF((MinT >= MaxT) * (MaxT < StartTime) = 0, 0,
+    IF(Days > 0, 1, EndTime) - IF(StartTime < MinT, MinT, StartTime)
+  ),
+
+  LastDayUpper, IF(MaxT < EndTime, MaxT, EndTime),
+
+  LastDayLowerLimit, IF(MinT >= MaxT, 0, MinT),
   LastDayLowerTime , IF(StartTime < EndTime, StartTime, 0),
   LastDayLower     , IF(LastDayLowerLimit < LastDayLowerTime,
     LastDayLowerTime, LastDayLowerLimit
   ),
-  LastDayUpper , IF(MaxT < EndTime, MaxT, EndTime),
+
   TimeOfLastDay, IF(Days > 0, LastDayUpper - LastDayLower, 0),
 
   IF(TimeOfFirstDay < 0, 0, TimeOfFirstDay) +
+  IF(TimeOfFirstDayBefore < 0, 0, TimeOfFirstDayBefore) +
   IF(TimeOfDays < 0, 0, TimeOfDays) +
   IF(TimeOfLastDay < 0, 0, TimeOfLastDay)
 ))
@@ -73,6 +85,8 @@
 - FirstDayUpper     : 重複する上限時間 (MIN(FirstDayUpperLimit, FirstDayUpperTime))
 - FirstDayLower     : 初日の下限時間
 - TimeOfFirstDay    : 初日の重複時間
+
+- TimeOfFirstDayBefore: 日またぎ時の時間調整
 
 - LastDayLowerLimit: 最終日の下限基準
 - LastDayLowerTime : 最終日の開始時刻
