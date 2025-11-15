@@ -18,7 +18,7 @@ X列, Y列は少なくとも2行以上必要です。
 **備考**
 
 - Result は戻り値です。引数としては不要です。
-- L に""を指定した場合、`ROUNDUP(MAX(YRange) * 1.01, -1)` が設定されます。
+- L を指定しない場合、`ROUNDUP(MAX(YRange) * 1.01, -1)` が設定されます。
 - 本関数は、相対誤差(%)を最小化します。
 - Y値が上限値に近い場合やノイズが大きい場合には誤差が増大します。
 - 高精度が必要な場合、Solverまたは非線形最小二乗法を使用してください。
@@ -27,7 +27,7 @@ X列, Y列は少なくとも2行以上必要です。
 
 ```excel
 = LAMBDA(XRange, YRange, L, x, LET(
-  Limit, IF(L = "", ROUNDUP(MAX(YRange) * 1.01, -1), L),
+  Limit, IF(ISOMITTED(L), ROUNDUP(MAX(YRange) * 1.01, -1), L),
   Y    , MAP(YRange, LAMBDA(val, LN(Limit - val))),
   Res  , LINEST(Y, XRange),
   k    , - INDEX(Res, 1),
@@ -60,5 +60,5 @@ ExpCurveModified という名前で、ブックに登録しているものとし
 > スピルにも対応しています
 
 ```excel
-= ExpCurveModified(A1:A10, B1:B10, "", A1:A20)
+= ExpCurveModified(A1:A10, B1:B10, , A1:A20)
 ```

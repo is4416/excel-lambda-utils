@@ -24,12 +24,12 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
 ```excel
 = LAMBDA(S, LET(
   S_Count, LEN(S),
-  S_List , SEQUENCE(S_Count),
+  S_List, SEQUENCE(S_Count),
 
   QuotList, MAP(
     S_List,
     LAMBDA(i, LET(
-      C    , MID(S, i, 1),
+      C, MID(S, i, 1),
       PrevC, IF(i = 1, "", MID(S, i - 1, 1)),
       NextC, IF(i = LEN(S), "", MID(S, i + 1, 1)),
       IF(AND(C = """", PrevC <> """", NextC <> """"), i, 0)
@@ -38,7 +38,7 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
   CleanQuotList, FILTER(QuotList, QuotList > 0),
 
   Q_Count, ROWS(CleanQuotList),
-  Q_List , SEQUENCE(CEILING(Q_Count / 2, 1)),
+  Q_List, SEQUENCE(CEILING(Q_Count / 2, 1)),
 
   EscapeAreas_Start, IF(Q_Count = 0, Q_List, MAP(
     Q_List,
@@ -71,11 +71,11 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
     SEQUENCE(ROWS(CleanDelimiterList)),
     LAMBDA(i, LET(
       Start, IF(i = 1, 1, INDEX(CleanDelimiterList, i - 1) + 1),
-      Size , INDEX(CleanDelimiterList, i) - Start + 1,
-      Buf  , TRIM(MID(S, Start, Size)),
-      Item , IF(i = ROWS(CleanDelimiterList), Buf, MID(Buf, 1, LEN(Buf) - 1)),
-      L    , IF(LEN(Item) > 0, LEFT(Item, 1), ""),
-      R    , IF(LEN(Item) > 1, RIGHT(Item, 1), ""),
+      Size, INDEX(CleanDelimiterList, i) - Start + 1,
+      Buf, TRIM(MID(S, Start, Size)),
+      Item, IF(i = ROWS(CleanDelimiterList), Buf, MID(Buf, 1, LEN(Buf) - 1)),
+      L, IF(LEN(Item) > 0, LEFT(Item, 1), ""),
+      R, IF(LEN(Item) > 1, RIGHT(Item, 1), ""),
       SUBSTITUTE(
         IF(AND(L = """", R = """"), MID(Item, 2, LEN(Item) - 2), Item),
         """""",
@@ -85,7 +85,7 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
   )),
 
   TextList
-)
+))
 ```
 
 **変数の詳細**

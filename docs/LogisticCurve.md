@@ -20,8 +20,8 @@ X列, Y列は少なくとも2行以上必要です。
 **備考**
 
 - Result は戻り値です。引数としては不要です。
-- L に "" を指定した場合、`MAX(YRange)` が自動設定されます。  
-- Xo に "" を指定した場合、最小二乗法の結果から自動推定されます。  
+- L を指定しない場合、`ROUNDUP(MAX(YRange) * 1.01, -1)` が自動設定されます。  
+- Xo を指定しない場合、最小二乗法の結果から自動推定されます。  
 - 本関数は、相対誤差(%)を最小化します。  
 - Y値が上限値 L に近い場合やノイズが大きい場合には誤差が増大します。  
 - 高精度が必要な場合、Solver または非線形最小二乗法を使用してください。 
@@ -29,12 +29,12 @@ X列, Y列は少なくとも2行以上必要です。
 **コード**
 
 ```excel
-= LAMBDA(XRange, YRange, L, Xo, x, LET(
-  Limit, IF(L = "", MAX(YRange), L),
+= LAMBDA(XRange,YRange,L,Xo,x, LET(
+  Limit, IF(ISOMITTED(L), ROUNDUP(MAX(YRange) * 1.01, -1), L),
   Y    , MAP(YRange, LAMBDA(val, LN((Limit - val) / val))),
   Res  , LINEST(Y, XRange),
   k    , - INDEX(Res, 1, 1),
-  Mid  , IF(Xo = "", INDEX(Res, 1, 2) / k, Xo),
+  Mid  , IF(ISOMITTED(Xo), INDEX(Res, 1,2) / k, Xo),
   Limit / (1 + EXP(- k * (x - Mid)))
 ))
 ```
@@ -66,5 +66,5 @@ LogisticCurve という名前で、ブックに登録しているものとしま
 > スピルにも対応しています
 
 ```excel
-= LogisticCurve(A1:A10, B1:B10, "", "", A1:A20)
+= LogisticCurve(A1:A10, B1:B10, , , A1:A20)
 ```

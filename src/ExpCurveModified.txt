@@ -1,5 +1,5 @@
 = LAMBDA(XRange, YRange, L, x, LET(
-  Limit, IF(L = "", MAX(YRange), L),
+  Limit, IF(ISOMITTED(L), ROUNDUP(MAX(YRange) * 1.01, -1), L),
   Y    , MAP(YRange, LAMBDA(val, LN(Limit - val))),
   Res  , LINEST(Y, XRange),
   k    , - INDEX(Res, 1),

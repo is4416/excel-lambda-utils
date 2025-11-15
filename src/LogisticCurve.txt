@@ -1,8 +1,8 @@
-= LAMBDA(XRange, YRange, L, Xo, x, LET(
-  Limit, IF(L = "", MAX(YRange), L),
+= LAMBDA(XRange,YRange,L,Xo,x, LET(
+  Limit, IF(ISOMITTED(L), ROUNDUP(MAX(YRange) * 1.01, -1), L),
   Y    , MAP(YRange, LAMBDA(val, LN((Limit - val) / val))),
   Res  , LINEST(Y, XRange),
   k    , - INDEX(Res, 1, 1),
-  Mid  , IF(Xo = "", INDEX(Res, 1, 2) / k, Xo),
+  Mid  , IF(ISOMITTED(Xo), INDEX(Res, 1,2) / k, Xo),
   Limit / (1 + EXP(- k * (x - Mid)))
 ))
