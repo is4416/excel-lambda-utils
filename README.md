@@ -4,6 +4,7 @@
 現在、以下の関数を公開しています。
 
 - **OverlapTime**     : 時間の重複計算
+- **MonthsBetween**   : 月数をカウント (月末締め or 翌月の前日締め)
 - **DistancePoint**   : 2次元座標間の距離
 - **PolygonArea**     : 座標による面積計算
 - **PowerCurve**      : べき乗曲線を作成し、結果を計算
@@ -22,6 +23,7 @@ excel-lambda-utils/
 ├── TODO.md
 ├── docs/
 │   ├── OverlapTime.md
+│   ├── MonthsBetween.md
 │   ├── DistancePoint.md
 │   ├── PolygonArea.md
 │   ├── PowerCurve.md
@@ -33,6 +35,7 @@ excel-lambda-utils/
 ├── examples/
 │   ├── excel-lambda-utils.ods
 │   ├── OverlapTime-example.txt
+│   ├── MonthsBetween-example.txt
 │   ├── DistancePoint-example.txt
 │   ├── PolygonArea-example.txt
 │   ├── PowerCurve-example.txt
@@ -43,6 +46,7 @@ excel-lambda-utils/
 │   └── SmartJoin-example.txt
 └── src/
      ├── OverlapTime.txt
+     ├── MonthsBetween.txt
      ├── DistancePoint.txt
      ├── PolygonArea.txt
      ├── PowerCurve.txt
