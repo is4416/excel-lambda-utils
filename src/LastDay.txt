@@ -1,0 +1,1 @@
+= LAMBDA(TargetDate, DATE(YEAR(TargetDate), MONTH(TargetDate) + 1, 0))

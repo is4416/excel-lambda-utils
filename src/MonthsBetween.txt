@@ -1,7 +1,8 @@
-= LAMBDA(StartDate, EndDate, EndOfMonth, LET(
+= LAMBDA(StartDate, EndDate, EndOfMonth, PivotDay, LET(
   EOM, IF(ISOMITTED(EndOfMonth), TRUE, EndOfMonth),
   Y_1, YEAR(StartDate), M_1, MONTH(StartDate), D_1, DAY(StartDate),
   Y_2, YEAR(EndDate)  , M_2, MONTH(EndDate)  , D_2, DAY(EndDate),
-  Correction, IF(EOM + (D_1 = 1) + (D_1 <= D_2), 1, 0),
+  BaseDay, IF(ISOMITTED(PivotDay), D_1, PivotDay),
+  Correction, IF(EOM + (D_1 = 1) + (BaseDay <= D_2), 1, 0),
   (Y_2 - Y_1) * 12 + M_2 - M_1 + Correction
 ))

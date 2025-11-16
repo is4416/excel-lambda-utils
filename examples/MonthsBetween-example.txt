@@ -1,10 +1,10 @@
 # MonthsBetween 使用例
 
 # 月末締めで、月数をカウントする例
-= MonthsBetween(A1, B1, TRUE)
+= MonthsBetween(A1, B1,,)
 
-# 月末締めで、スピルでまとめて計算する例 (引数省略のパターン)
-= MonthsBetween(A1:A10, A1:A10, )
+# 契約日締め 'DAY(StartDate)' で、スピルでまとめて計算する例
+= MonthsBetween(A1:A10, A1:A10, FALSE,)
 
-# 翌月の前日締め (4/10 - 5/9) としてカウントする例
-= MonthsBetween(A1, A2, FALSE)
+# 15日締めで計算する例
+= MonthsBetween(A1:A10, B1:B10, FALSE, 15)
