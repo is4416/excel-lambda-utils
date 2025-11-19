@@ -1,0 +1,7 @@
+= LAMBDA(F, LET(
+  TotalSec, ROUND(F * 3600, 0),
+  H       , INT(TotalSec / 3600),
+  M       , INT(MOD(TotalSec, 3600) / 60),
+  S       , MOD(TotalSec, 60),
+  TIME(H, M, S)
+))

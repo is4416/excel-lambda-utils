@@ -6,6 +6,8 @@
 - **OverlapTime**     : 時間の重複計算
 - **MonthsBetween**   : 月数をカウント (月末締め or 翌月の前日締め)
 - **LastDay**         : 指定日の最終日を返す
+- **TimeToDecimal**   : 時刻 (TimeDate) を時間 (Float) に変換
+- **DecimalToTime**   : 時間 (Float) を時刻 (TimeToDate) に変換
 - **DistancePoint**   : 2次元座標間の距離
 - **PolygonArea**     : 座標による面積計算
 - **PowerCurve**      : べき乗曲線を作成し、結果を計算
@@ -26,6 +28,8 @@ excel-lambda-utils/
 │   ├── OverlapTime.md
 │   ├── MonthsBetween.md
 │   ├── LastDay.md
+│   ├── TimeToDecimal.md
+│   ├── DecimalToTime.md
 │   ├── DistancePoint.md
 │   ├── PolygonArea.md
 │   ├── PowerCurve.md
@@ -39,6 +43,8 @@ excel-lambda-utils/
 │   ├── OverlapTime-example.txt
 │   ├── MonthsBetween-example.txt
 │   ├── LastDay-example.txt
+│   ├── TimeToDecimal-example.txt
+│   ├── DecimalToTIme-example.txt
 │   ├── DistancePoint-example.txt
 │   ├── PolygonArea-example.txt
 │   ├── PowerCurve-example.txt
@@ -51,6 +57,8 @@ excel-lambda-utils/
      ├── OverlapTime.txt
      ├── MonthsBetween.txt
      ├── LastDay.txt
+     ├── TimeToDecimal.txt
+     ├── DecimalToTime.txt
      ├── DistancePoint.txt
      ├── PolygonArea.txt
      ├── PowerCurve.txt
