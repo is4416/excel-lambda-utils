@@ -1,4 +1,4 @@
-# 🕒 Excel Lambda Utils
+# ⚙️ Excel Lambda Utils
 
 このリポジトリは、Excel LAMBDA関数を使ったユーティリティ集です。  
 現在、以下の関数を公開しています。
@@ -29,6 +29,7 @@
 
 ```
 excel-lambda-utils/
+├── index.md
 ├── LICENSE
 ├── README.md
 ├── TODO.md
