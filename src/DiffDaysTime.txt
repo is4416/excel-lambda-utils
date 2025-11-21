@@ -1,0 +1,6 @@
+= LAMBDA(StartDays, StartTime, SubDays, SubTime, TimePerDay, LET(
+  TPD, IF(ISOMITTED(TimePerDay), TIME(7, 45, 0), TimePerDay),
+  T  , IF(StartTime < SubTime, TPD, 0) + StartTime - SubTime,
+  D  , StartDays - SubDays - IF(StartTime < SubTime, 1, 0),
+  HSTACK(D, T)
+))
