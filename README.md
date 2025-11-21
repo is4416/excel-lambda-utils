@@ -14,6 +14,7 @@
 [座標計算]
 - **DistancePoint**   : 2次元座標間の距離
 - **PolygonArea**     : 座標による面積計算
+- **FootPoint**       : 線と点の垂直に交わる交点の座標と、点との距離を返す
 
 [曲線計算]
 - **PowerCurve**      : べき乗曲線を作成し、結果を計算
@@ -43,6 +44,7 @@ excel-lambda-utils/
 │   │
 │   ├── DistancePoint.md
 │   ├── PolygonArea.md
+│   ├── FootPoint.md
 │   │
 │   ├── PowerCurve.md
 │   ├── ExpCurveSimple.md
@@ -64,6 +66,7 @@ excel-lambda-utils/
 │   │
 │   ├── DistancePoint-example.txt
 │   ├── PolygonArea-example.txt
+│   ├── FootPoint-example.txt
 │   │
 │   ├── PowerCurve-example.txt
 │   ├── ExpCurveSimple-example.txt
@@ -83,6 +86,7 @@ excel-lambda-utils/
      │
      ├── DistancePoint.txt
      ├── PolygonArea.txt
+     ├── FootPoint.txt
      │
      ├── PowerCurve.txt
      ├── ExpCurveSimple.txt
