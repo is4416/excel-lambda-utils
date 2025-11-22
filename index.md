@@ -3,6 +3,7 @@
 Excel LAMBDA関数を使った汎用ユーティリティ集です。  
 勤務時間計算、座標計算、曲線作成、文字列操作など、様々な関数を提供します。
 
+- [A simple list in English](docs/index.md)
 - ライセンス: [MIT](LICENSE)
 
 ## ⏱️ 時間の計算

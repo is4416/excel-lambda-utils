@@ -35,6 +35,8 @@ excel-lambda-utils/
 ├── README.md
 ├── TODO.md
 ├── docs/
+│   ├── index.md
+│   │
 │   ├── OverlapTime.md
 │   ├── TimeToDecimal.md
 │   ├── DecimalToTime.md
