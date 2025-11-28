@@ -1,0 +1,19 @@
+TriangleAreaSSS = LAMBDA(A, B, C, LET(
+  S, (A + B + C) / 2,
+  IF((A < B + C) * (B < A + C) * (C < A + B),
+    SQRT(S * (S - A) * (S - B) * (S - C)),
+    NA()
+  )
+))
+
+TriangleAreaSAS = LAMBDA(A, R, B, IF(
+  (A <= 0) + (B <= 0) + (R >= 180),
+  NA(),
+  A * B * SIN(RADIANS(R)) / 2
+))
+
+TriangleAreaASA = LAMBDA(A, LR, RR, IF(
+  (A <= 0) + (LR <= 0) + (RR <= 0) + (LR + RR >= 180),
+  NA(),
+  A^2 * SIN(RADIANS(LR)) * SIN(RADIANS(RR)) / (2 * SIN(RADIANS(LR + RR)))
+))

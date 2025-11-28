@@ -17,6 +17,11 @@
 - **FootPoint**       : 線と点の垂直に交わる交点の座標と、点との距離を返す
 - **CrossPoint**      : 線と線が交差する点と、交差が指定した線の内部か判定する
 
+[面積/体積計算]
+- **TriangleAreaSSS** : 3辺から三角形の面積を計算
+- **TriangleAreaSAS** : 2辺とその間の角度から三角形の面積を計算
+- **TriangleAreaASA** : 1辺とその両端の角度から三角形の面積を計算
+
 [曲線計算]
 - **PowerCurve**      : べき乗曲線を作成し、結果を計算
 - **ExpCurveSimple**  : 単純指数曲線を作成し、結果を計算
@@ -50,6 +55,8 @@ excel-lambda-utils/
 │   ├── FootPoint.md
 │   ├── CrossPoint.md
 │   │
+│   ├── TriangleArea.md
+│   │
 │   ├── PowerCurve.md
 │   ├── ExpCurveSimple.md
 │   ├── ExpCurveModified.md
@@ -73,6 +80,8 @@ excel-lambda-utils/
 │   ├── FootPoint-example.txt
 │   ├── CrossPoint-example.txt
 │   │
+│   ├── TriangleArea-example.txt
+│   │
 │   ├── PowerCurve-example.txt
 │   ├── ExpCurveSimple-example.txt
 │   ├── ExpCurveModified-example.txt
@@ -93,6 +102,8 @@ excel-lambda-utils/
      ├── PolygonArea.txt
      ├── FootPoint.txt
      ├── CrossPoint.txt
+     │
+     ├── TriangleArea.txt
      │
      ├── PowerCurve.txt
      ├── ExpCurveSimple.txt

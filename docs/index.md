@@ -91,6 +91,34 @@ Function CrossPoint(
 ): HSTACK (Point, Boolean)
 ```
 
+## Area / Volume Calculations
+
+PolygonArea handles arbitrary polygons, while TriangleArea functions handle triangles from sides and/or angles.
+
+TriangleAreaSSS: Calculates the area of a triangle from three side lengths.
+```TriangleAreaSSS
+Function TriangleAreaSSS(
+  A, B, C: Number
+): Number
+```
+
+TriangleAreaSAS: Calculates the area of a triangle from two sides and the angle between them.
+```TriangleAreaSAS
+Function TriangleAreaSAS(
+  A: Number
+  R: Number (degrees)
+  B: Number
+): Number
+```
+
+TriangleAreaASA: Calculates the area of a triangle from one side and its two end angles.
+```TriangleAreaASA
+Function TriangleAreaASA(
+  A     : Number
+  LR, RR: Number (degrees)
+): Number
+```
+
 ## Curve Calculations
 
 PowerCurve: Generates a power curve and computes its value.

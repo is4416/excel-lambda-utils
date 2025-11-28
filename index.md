@@ -20,6 +20,11 @@ Excel LAMBDA関数を使った汎用ユーティリティ集です。
 - **[FootPoint](docs/FootPoint.md)**         : 線と点の垂直に交わる交点の座標と、点との距離を返す
 - **[CrossPoint](docs/CrossPoint.md)**       : 線と線が交差する点と、交差が指定した線の内部か判定する
 
+## 🔺 面積/体積計算
+- **[TriangleAreaSSS](docs/TriangleArea.md)** : 3辺から三角形の面積を計算
+- **[TriangleAreaSAS](docs/TriangleArea.md)** : 2辺とその間の角度から三角形の面積を計算
+- **[TriangleAreaASA](docs/TriangleArea.md)** : 1辺とその両端の角度から三角形の面積を計算
+
 ## 📈 曲線計算
 - **[PowerCurve](docs/PowerCurve.md)**             : べき乗曲線を作成し、結果を計算
 - **[ExpCurveSimple](docs/ExpCurveSimple.md)**     : 単純指数曲線を作成し、結果を計算
