@@ -64,9 +64,8 @@ Function DiffDaysTime (
 DistancePoint: Calculates the distance between two 2D points.
 ```DistancePoint
 Function DistancePoint (
-  P1X, P1Y, P2X, P2Y: Number
-): Number
-// Arguments may be updated later.
+  PointA, PointB: Point
+): Point
 ```
 
 PolygonArea: Computes the area of a polygon defined by coordinates.
@@ -82,6 +81,14 @@ Function FootPoint(
   Line : HSTACK(Point, Point)
   Point: Point
 ): HSTACK (Point, Number)
+```
+
+CrossPoint: Returns the intersection point of two lines and a boolean indicating whether the intersection lies within the specified line segments.
+```CrossPoint
+Function CrossPoint(
+  LineA: HSTACK(Point, Point)
+  LineB: HSTACK(Point, Point)
+): HSTACK (Point, Boolean)
 ```
 
 ## Curve Calculations

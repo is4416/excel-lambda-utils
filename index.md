@@ -18,6 +18,7 @@ Excel LAMBDA関数を使った汎用ユーティリティ集です。
 - **[DistancePoint](docs/DistancePoint.md)** : 2次元座標間の距離
 - **[PolygonArea](docs/PolygonArea.md)**     : 座標による面積計算
 - **[FootPoint](docs/FootPoint.md)**         : 線と点の垂直に交わる交点の座標と、点との距離を返す
+- **[CrossPoint](docs/CrossPoint.md)**       : 線と線が交差する点と、交差が指定した線の内部か判定する
 
 ## 📈 曲線計算
 - **[PowerCurve](docs/PowerCurve.md)**             : べき乗曲線を作成し、結果を計算

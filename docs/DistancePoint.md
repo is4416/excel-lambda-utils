@@ -7,10 +7,8 @@
 
 | 引数   | 型     | 説明                           |
 | ------ | ------ | ------------------------------ |
-| P1X    | Number | 1点目のX座標（数値または範囲） |
-| P1Y    | Number | 1点目のY座標（数値または範囲） |
-| P2X    | Number | 2点目のX座標（数値または範囲） |
-| P2Y    | Number | 2点目のY座標（数値または範囲） |
+| PointA | Range  | 2列 (X, Y) の座標範囲          |
+| PointB | Range  | 2列 (X, Y) の座標範囲          |
 | Result | Number | 2点間の距離を返す              |
 
 **備考**
@@ -20,19 +18,23 @@
 **コード**
 
 ```excel
-= LAMBDA(P1X, P1Y, P2X, P2Y,
+= LAMBDA(PointA, PointB, LET(
+  AX, TAKE(PointA,,1),
+  AY, TAKE(DROP(PointA,,1),,1),
+  BX, TAKE(PointB,,1),
+  BY, TAKE(DROP(PointB,,1),,1),
   SQRT(
-    (P1X - P2X)^2 + (P1Y - P2Y)^2
+    (BX - AX)^2 + (BY - AY)^2
   )
-)
+))
 ```
 
 **変数の詳細**
 
-- P1X: Number, 1点目のX座標
-- P1Y: Number, 1点目のY座標
-- P2X: Number, 2点目のX座標
-- P2Y: Number, 2点目のY座標
+- AX: Number, PointAのX座標
+- AY: Number, PointAのY座標
+- BX: Number, PointBのX座標
+- BY: Number, PointBのY座標
 
 **使用例**
 
@@ -40,5 +42,8 @@ DistancePoint という名前で、ブックに登録しているものとしま
 > スピルにも対応しています。
 
 ```excel
-= DistancePoint(A2:A10, B2:B10, VSTACK(A3:A10, A2), VSTACK(B3:B10, B2))
+= DistancePoint(
+  A2:B10,
+  VSTACK(A3:B10, A2:B2)
+)
 ```

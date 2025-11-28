@@ -15,6 +15,7 @@
 - **DistancePoint**   : 2次元座標間の距離
 - **PolygonArea**     : 座標による面積計算
 - **FootPoint**       : 線と点の垂直に交わる交点の座標と、点との距離を返す
+- **CrossPoint**      : 線と線が交差する点と、交差が指定した線の内部か判定する
 
 [曲線計算]
 - **PowerCurve**      : べき乗曲線を作成し、結果を計算
@@ -47,6 +48,7 @@ excel-lambda-utils/
 │   ├── DistancePoint.md
 │   ├── PolygonArea.md
 │   ├── FootPoint.md
+│   ├── CrossPoint.md
 │   │
 │   ├── PowerCurve.md
 │   ├── ExpCurveSimple.md
@@ -69,6 +71,7 @@ excel-lambda-utils/
 │   ├── DistancePoint-example.txt
 │   ├── PolygonArea-example.txt
 │   ├── FootPoint-example.txt
+│   ├── CrossPoint-example.txt
 │   │
 │   ├── PowerCurve-example.txt
 │   ├── ExpCurveSimple-example.txt
@@ -89,6 +92,7 @@ excel-lambda-utils/
      ├── DistancePoint.txt
      ├── PolygonArea.txt
      ├── FootPoint.txt
+     ├── CrossPoint.txt
      │
      ├── PowerCurve.txt
      ├── ExpCurveSimple.txt

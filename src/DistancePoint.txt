@@ -1,5 +1,9 @@
-= LAMBDA(P1X, P1Y, P2X, P2Y,
+= LAMBDA(PointA, PointB, LET(
+  AX, TAKE(PointA,,1),
+  AY, TAKE(DROP(PointA,,1),,1),
+  BX, TAKE(PointB,,1),
+  BY, TAKE(DROP(PointB,,1),,1),
   SQRT(
-    (P1X - P2X)^2 + (P1Y - P2Y)^2
+    (BX - AX)^2 + (BY - AY)^2
   )
-)
+))

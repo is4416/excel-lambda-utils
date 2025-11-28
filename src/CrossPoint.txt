@@ -1,0 +1,49 @@
+= LAMBDA(LineA, LineB, LET(
+  AX , TAKE(LineA,,1),
+  AY , TAKE(DROP(LineA,,1),,1),
+  AXX, TAKE(DROP(LineA,,2),,1),
+  AYY, TAKE(DROP(LineA,,3),,1),
+  VA , AX = AXX,
+  AA , IF(VA, 0, (AYY - AY) / (AXX - AX)),
+  AB , IF(VA, 0, AY - AA * AX),
+
+  BX , TAKE(LineB,,1),
+  BY , TAKE(DROP(LineB,,1),,1),
+  BXX, TAKE(DROP(LineB,,2),,1),
+  BYY, TAKE(DROP(LineB,,3),,1),
+  VB , BX = BXX,
+  BA , IF(VB, 0, (BYY - BY) / (BXX - BX)),
+  BB , IF(VB, 0, BY - BA * BX),
+
+  CX, IF(VA = VB,
+    IF(AA = BA,
+      NA(),
+      (BB - AB) / (AA - BA)
+    ),
+    IF(VA, AX, BX)
+  ),
+
+  CY, IF(ISNA(CX),
+    NA(),
+    IF(VA,
+      BA * CX + BB,
+      AA * CX + AB
+    )
+  ),
+
+  LineAMinX, IF(AX < AXX, AX, AXX),
+  LineAMaxX, IF(AX < AXX, AXX, AX),
+
+  LineBMinX, IF(BX < BXX, BX, BXX),
+  LineBMaxX, IF(BX < BXX, BXX, BX),
+
+  MinX, IF(LineAMinX < LineBMinX, LineBMinX, LineAMinX),
+  MaxX, IF(LineAMaxX < LineBMaxX, LineAMaxX, LineBMaxX),
+
+  InLine, IF(ISNA(CX),
+    NA(),
+    (MinX <= CX) * (CX <= MaxX) <> 0
+  ),
+
+  HSTACK(CX, CY, InLine)
+))
