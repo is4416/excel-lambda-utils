@@ -119,6 +119,15 @@ Function TriangleAreaASA(
 ): Number
 ```
 
+SectionVolume: Calculate volume from SP cross section (average section method, prismoidal method, Toda correction)
+```SectionVolume
+Function SectionVolume(
+  SPRange, ARange: VSTACK (Number)
+  UniformSpan    : Boolean (optional)
+  Alpha          : Number (optional)
+): VSTACK ( HSTACK (Number, Number) )
+```
+
 ## Curve Calculations
 
 PowerCurve: Generates a power curve and computes its value.

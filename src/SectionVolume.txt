@@ -1,0 +1,83 @@
+= LAMBDA(SPRange, ARange, UniformSpan, Alpha, LET(
+  US, IF(ISOMITTED(UniformSpan),
+    LET(
+      Span, INDEX(SPRange, 2) - INDEX(SPRange, 1),
+      AND(MAP(
+        SEQUENCE(ROWS(SPRange) - 2),
+        LAMBDA(i, Span = INDEX(SPRange, i + 2) - INDEX(SPRange, i + 1))
+      ))
+    ),
+    UniformSpan
+  ),
+
+  Alp, IF(ISOMITTED(Alpha), 0, Alpha),
+
+  N, ROWS(SPRange),
+  IndexList, SEQUENCE(IF(US,
+    INT((N - 1) / 2),
+    N - 1
+  )),
+
+  L, IF(US,
+    MAP(
+      IndexList,
+      LAMBDA(i, INDEX(SPRange, (i - 1) * 2 + 3) - INDEX(SPRange, (i - 1) * 2 + 1))
+    ),
+    MAP(
+      IndexList,
+      LAMBDA(i, INDEX(SPRange, i + 1) - INDEX(SPRange, i))
+    )
+  ),
+
+  SPList, IF(US,
+    MAP(
+      IndexList,
+      LAMBDA(i, INDEX(SPRange, (i - 1) * 2 + 1))
+    ),
+    DROP(SPRange, - 1)
+  ),
+
+  A, IF(US,
+    MAP(
+      IndexList,
+      LAMBDA(i, INDEX(ARange, (i - 1) * 2 + 1))
+    ),
+    DROP(ARange, - 1)
+  ),
+
+  AA, IF(US,
+    MAP(
+      IndexList,
+      LAMBDA(i, INDEX(ARange, (i - 1) * 2 + 3))
+    ),
+    DROP(ARange, 1)
+  ),
+
+  M, IF(US,
+    MAP(
+      IndexList,
+      LAMBDA(i, INDEX(ARange, (i - 1) * 2 + 2))
+    ),
+    (A + AA) / 2
+  ),
+
+  Volumes, (A + 4 * M + AA) / 6 * L + Alp * (AA - A) * L,
+
+  ExFlag  , US * (MOD(N - 1, 2) = 1),
+  ExSPList, INDEX(SPRange, N - 1),
+  ExA     , INDEX(ARange, N - 1),
+  ExAA    , INDEX(ARange, N),
+  ExL     , INDEX(SPRange, N) - INDEX(SPRange, N - 1),
+  ExVolume, (ExA + ExAA) / 2 * ExL,
+
+  HSTACK(
+    IF(ExFlag,
+      VSTACK(SPList, ExSPList),
+      SPList
+    ),
+    IF(ExFlag,
+      VSTACK(Volumes, ExVolume),
+      Volumes
+    )
+  )
+))

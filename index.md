@@ -24,6 +24,7 @@ Excel LAMBDA関数を使った汎用ユーティリティ集です。
 - **[TriangleAreaSSS](docs/TriangleArea.md)** : 3辺から三角形の面積を計算
 - **[TriangleAreaSAS](docs/TriangleArea.md)** : 2辺とその間の角度から三角形の面積を計算
 - **[TriangleAreaASA](docs/TriangleArea.md)** : 1辺とその両端の角度から三角形の面積を計算
+- **[SectionVolume](docs/SectionVolume.md)**  : SP断面から体積を計算 (平均断面法、プリスモイダル法、戸田式補正)
 
 ## 📈 曲線計算
 - **[PowerCurve](docs/PowerCurve.md)**             : べき乗曲線を作成し、結果を計算

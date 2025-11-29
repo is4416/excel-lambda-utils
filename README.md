@@ -21,6 +21,7 @@
 - **TriangleAreaSSS** : 3辺から三角形の面積を計算
 - **TriangleAreaSAS** : 2辺とその間の角度から三角形の面積を計算
 - **TriangleAreaASA** : 1辺とその両端の角度から三角形の面積を計算
+- **SectionVolume**   : SP断面から体積を計算 (平均断面法、プリスモイダル法、戸田式補正)
 
 [曲線計算]
 - **PowerCurve**      : べき乗曲線を作成し、結果を計算
@@ -56,6 +57,7 @@ excel-lambda-utils/
 │   ├── CrossPoint.md
 │   │
 │   ├── TriangleArea.md
+│   ├── SectionVolume.md
 │   │
 │   ├── PowerCurve.md
 │   ├── ExpCurveSimple.md
@@ -81,6 +83,7 @@ excel-lambda-utils/
 │   ├── CrossPoint-example.txt
 │   │
 │   ├── TriangleArea-example.txt
+│   ├── SectionVolume-example.txt
 │   │
 │   ├── PowerCurve-example.txt
 │   ├── ExpCurveSimple-example.txt
@@ -104,6 +107,7 @@ excel-lambda-utils/
      ├── CrossPoint.txt
      │
      ├── TriangleArea.txt
+     ├── SectionVolume.txt
      │
      ├── PowerCurve.txt
      ├── ExpCurveSimple.txt
