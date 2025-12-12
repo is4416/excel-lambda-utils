@@ -33,5 +33,7 @@ Excel LAMBDA関数を使った汎用ユーティリティ集です。
 - **[LogisticCurve](docs/LogisticCurve.md)**       : ロジスティック曲線を作成し、結果を計算
 
 ## ✂️ 文字列操作
-- **[SmartSplit](docs/SmartSplit.md)** : CSV/JSON風文字列を、ダブルクォートとエスケープを考慮して安全に分割
-- **[SmartJoin](docs/SmartJoin.md)**   : 範囲から、CSV風文字列を作成。ダブルクォートで囲い、["] は [""] に置き換える
+- **[SmartSplit](docs/SmartSplit.md)**: CSV/JSON風文字列を、ダブルクォートとエスケープを考慮して安全に分割
+- **[SmartJoin](docs/SmartJoin.md)**  : 範囲から、CSV風文字列を作成。ダブルクォートで囲い、["] は [""] に置き換える
+- **[NumberToColumn](docs/NumberToColumn.md)** : 数字を、エクセルのCOLUMNに対応する文字列に変換する
+- **[ColumnToNumber](docs/NumberToColumn.md)** : エクセルのCOLUMNに対応する文字列を、数字に変換する

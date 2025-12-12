@@ -1,0 +1,14 @@
+NumberToColumn = LAMBDA(Num, LET(
+  L, INT(LOG(Num * 25 + 1, 26)),
+  Keys, MAP(SEQUENCE(L), LAMBDA(i, LET(
+    T, REDUCE(Num, SEQUENCE(i), LAMBDA(R,j, IF(j = 1, R, INT((R - 1) / 26)))),
+    CHAR(65 + MOD(T - 1, 26))
+  ))),
+  REDUCE("", Keys, LAMBDA(R,Key, Key & R))
+))
+
+ColumnToNumber = LAMBDA(Str, LET(
+  L, LEN(Str),
+  Codes, MAP(SEQUENCE(L), LAMBDA(i, CODE(MID(Str, i, 1)) - 64)),
+  REDUCE(0, SEQUENCE(L), LAMBDA(R, i, R * 26 + INDEX(Codes, i)))
+))

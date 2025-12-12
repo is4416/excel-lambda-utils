@@ -184,3 +184,17 @@ Function SmartJoin (
   Rng: VSTACK (string)
 ): string
 ```
+
+Converts a number into the corresponding Excel column label.
+```NumberToColumn
+Function NumberToColumn (
+  Num: Number
+): string
+```
+
+Converts an Excel column label into its corresponding number.
+```ColumnToNumber
+Function ColumnToNumber (
+  Str: string
+): Number
+```

@@ -32,6 +32,8 @@
 [文字列操作]
 - **SmartSplit**      : CSV/JSON風文字列を、ダブルクォートとエスケープを考慮して安全に分割
 - **SmartJoin**       : 範囲から、CSV風文字列を作成。ダブルクォートで囲い、["] は [""] に置き換える
+- **NumberToColumn**  : 数字を、エクセルのCOLUMNに対応した文字列に変換する
+- **ColumnToNumber**  : エクセルのCOLUMNに対応した文字列を、数字に変換する
 
 ## 📂 構成
 
@@ -65,7 +67,8 @@ excel-lambda-utils/
 │   ├── LogisticCurve.md
 │   │
 │   ├── SmartSplit.md
-│   └── SmartJoin.md
+│   ├── SmartJoin.md
+│   └── NumberToColumn.md
 │
 ├── examples/
 │   ├── excel-lambda-utils.ods
@@ -91,7 +94,8 @@ excel-lambda-utils/
 │   ├── LogisticCurve-example.txt
 │   │
 │   ├── SmartSplit-example.txt
-│   └── SmartJoin-example.txt
+│   ├── SmartJoin-example.txt
+│   └── NumberToColumn-example.txt
 │
 └── src/
      ├── OverlapTime.txt
@@ -115,7 +119,8 @@ excel-lambda-utils/
      ├── LogisticCurve.txt
      │
      ├── SmartSplit.txt
-     └── SmartJoin.txt
+     ├── SmartJoin.txt
+     └── NumberToColumn.txt
 ```
 
 ## 📖 ドキュメント
