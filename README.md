@@ -32,6 +32,7 @@
 [文字列操作]
 - **SmartSplit**      : CSV/JSON風文字列を、ダブルクォートとエスケープを考慮して安全に分割
 - **SmartJoin**       : 範囲から、CSV風文字列を作成。ダブルクォートで囲い、["] は [""] に置き換える
+- **Words**           : スペースで区切られた文字を分割して取得
 - **NumberToColumn**  : 数字を、エクセルのCOLUMNに対応した文字列に変換する
 - **ColumnToNumber**  : エクセルのCOLUMNに対応した文字列を、数字に変換する
 
@@ -68,6 +69,7 @@ excel-lambda-utils/
 │   │
 │   ├── SmartSplit.md
 │   ├── SmartJoin.md
+│   ├── Words.md
 │   └── NumberToColumn.md
 │
 ├── examples/
@@ -95,6 +97,7 @@ excel-lambda-utils/
 │   │
 │   ├── SmartSplit-example.txt
 │   ├── SmartJoin-example.txt
+│   ├── Words-example.txt
 │   └── NumberToColumn-example.txt
 │
 └── src/
@@ -120,6 +123,7 @@ excel-lambda-utils/
      │
      ├── SmartSplit.txt
      ├── SmartJoin.txt
+     ├── Words.txt
      └── NumberToColumn.txt
 ```
 

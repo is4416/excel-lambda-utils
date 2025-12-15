@@ -1,0 +1,4 @@
+= LAMBDA(Text, LET(
+  List, TEXTSPLIT(SUBSTITUTE(Text, "　", " "), " "),
+  FILTER(List, List <> "")
+))

@@ -185,6 +185,13 @@ Function SmartJoin (
 ): string
 ```
 
+Extracts words separated by spaces.
+```Words
+Function Words (
+  Text: string
+): HSTACK()string
+```
+
 Converts a number into the corresponding Excel column label.
 ```NumberToColumn
 Function NumberToColumn (
