@@ -38,3 +38,6 @@ Excel LAMBDA関数を使った汎用ユーティリティ集です。
 - **[Words](docs/Words.md)**          : スペースで区切られた文字を分割して取得
 - **[NumberToColumn](docs/NumberToColumn.md)** : 数字を、エクセルのCOLUMNに対応する文字列に変換する
 - **[ColumnToNumber](docs/NumberToColumn.md)** : エクセルのCOLUMNに対応する文字列を、数字に変換する
+
+## 🔍 検索
+- **[ClosestIndex](docs/ClosestIndex.md)**: 指定された範囲から、しきい値に一番近い値の、最初のインデックス番号を返す

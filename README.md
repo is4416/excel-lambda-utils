@@ -36,6 +36,9 @@
 - **NumberToColumn**  : 数字を、エクセルのCOLUMNに対応した文字列に変換する
 - **ColumnToNumber**  : エクセルのCOLUMNに対応した文字列を、数字に変換する
 
+[検索]
+- **ClosestIndex** : しきい値に一番近い値の、最初のインデックス番号を返す
+
 ## 📂 構成
 
 ```
@@ -70,7 +73,9 @@ excel-lambda-utils/
 │   ├── SmartSplit.md
 │   ├── SmartJoin.md
 │   ├── Words.md
-│   └── NumberToColumn.md
+│   ├── NumberToColumn.md
+│   │
+│   └── ClosestIndex.md
 │
 ├── examples/
 │   ├── excel-lambda-utils.ods
@@ -98,7 +103,9 @@ excel-lambda-utils/
 │   ├── SmartSplit-example.txt
 │   ├── SmartJoin-example.txt
 │   ├── Words-example.txt
-│   └── NumberToColumn-example.txt
+│   ├── NumberToColumn-example.txt
+│   │
+│   └── ClosestIndex-example.txt
 │
 └── src/
      ├── OverlapTime.txt
@@ -124,7 +131,9 @@ excel-lambda-utils/
      ├── SmartSplit.txt
      ├── SmartJoin.txt
      ├── Words.txt
-     └── NumberToColumn.txt
+     ├── NumberToColumn.txt
+     │
+     └── ClosestIndex.txt
 ```
 
 ## 📖 ドキュメント

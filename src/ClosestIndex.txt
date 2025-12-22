@@ -1,0 +1,4 @@
+= LAMBDA(Values, Threshold, LET(
+  Diff, ABS(Threshold - Values),
+  MATCH(MIN(Diff), Diff, FALSE)
+)

@@ -205,3 +205,12 @@ Function ColumnToNumber (
   Str: string
 ): Number
 ```
+## Search
+
+Returns the index number of the first value in a range that is closest to the threshold.
+```ClosestIndex
+Function ClosestIndex (
+  Values   : VSTACK (Number)
+  Threshold: Number
+): Number
+```
