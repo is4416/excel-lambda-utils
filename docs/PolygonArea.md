@@ -20,7 +20,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(Points, LET(
   RowCount  , ROWS(Points),
   DoubleArea, MAP(SEQUENCE(RowCount), LAMBDA(i, LET(
@@ -46,7 +46,7 @@
 
 PolygonArea という名前で、ブックに登録しているものとします。
 
-```excel
+```vb
 = PolygonArea(A1:B10)
 ```
 

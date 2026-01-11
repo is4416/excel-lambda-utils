@@ -19,7 +19,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(LineA, LineB, LET(
   AX , TAKE(LineA,,1),
   AY , TAKE(DROP(LineA,,1),,1),
@@ -93,7 +93,7 @@
 CrossPoint という名前で。ブックに登録しているものとします  
 以下、3つの計算をスピルを用いて出力している例です
 
-```excel
+```vb
 = CrossPoint(A1:D3, E1:H3)
 ```
 

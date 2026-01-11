@@ -21,7 +21,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(StartDate, EndDate, EndOfMonth, PivotDay, LET(
   EOM       , IF(ISOMITTED(EndOfMonth), TRUE, EndOfMonth),
   Y_1       , YEAR(StartDate),
@@ -53,6 +53,6 @@
 MonthsBetWeen という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = MonthsBetWeen(A1:A3, B1:B3,,)
 ```

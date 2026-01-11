@@ -20,7 +20,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(Line, Point, LET(
   X  , TAKE(Line,,1),
   XX , TAKE(DROP(Line,,2),,1),
@@ -65,7 +65,7 @@
 FootPoint という名前で。ブックに登録しているものとします  
 以下、3つの計算をスピルを用いて出力している例です
 
-```excel
+```vb
 = FootPoint(A1:D3, E1:F3)
 ```
 

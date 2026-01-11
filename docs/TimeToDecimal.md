@@ -15,7 +15,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(T,
   HOUR(T) + MINUTE(T) / 60 + SECOND(T) / 3600
 )
@@ -26,7 +26,7 @@
 TimeToDecimal という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = TimeToDecimal(TIMEVALUE("1:45"))
 ```
 

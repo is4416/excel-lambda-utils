@@ -18,7 +18,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(Values, Threshold, LET(
   Diff, ABS(Threshold - Values),
   MATCH(MIN(Diff), Diff, FALSE)
@@ -33,6 +33,6 @@
 ClosestIndex という名前で、ブックに登録しているものとします
 > スピルには、対応していません
 
-```excel
+```vb
 = ClosestIndex(A1:A5, 10)
 ```

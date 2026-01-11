@@ -16,7 +16,7 @@
 
 **コード**
 
-```excel
+```vb
 NumberToColumn = LAMBDA(Num, LET(
   L, INT(LOG(Num * 25 + 1, 26)),
   Keys, MAP(SEQUENCE(L), LAMBDA(i, LET(
@@ -36,7 +36,7 @@ NumberToColumn = LAMBDA(Num, LET(
 
 NumberToColumn という名前でブックに登録しているものとします。
 
-```excel
+```vb
 = NumberToColumn(4)
 ```
 
@@ -45,7 +45,7 @@ D
 
 スピル対応ができなかったため、連続する値を処理する場合には、MAPでラップしてください。
 
-```excel
+```vb
 = MAP(A1:A10, NumberToColumn)
 ```
 
@@ -56,7 +56,7 @@ D
 
 **コード**
 
-```excel
+```vb
 ColumnToNumber = LAMBDA(Str, LET(
   L, LEN(Str),
   Codes, MAP(SEQUENCE(L), LAMBDA(i, CODE(MID(Str, i, 1)) - 64)),

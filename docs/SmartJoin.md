@@ -18,7 +18,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(Rng, BYROW(
   Rng,
   LAMBDA(
@@ -32,6 +32,6 @@
 
 SmartJoin という名前でブックに登録しているものとします。
 
-```excel
+```vb
 = SmartJoin(A1:C5)
 ```

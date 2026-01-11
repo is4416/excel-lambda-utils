@@ -22,7 +22,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(StartDate,EndDate,MinTime,MaxTime, LET(
   StartTime, MOD(StartDate, 1),
   EndTime  , MOD(EndDate, 1),
@@ -99,6 +99,6 @@
 OverlapTime という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = OverlapTime(A1:A10, B1:B10, TIMEVALUE("08:30"), TIMEVALUE("17:15"))
 ```

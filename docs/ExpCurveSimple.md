@@ -22,7 +22,7 @@ X列, Y列は少なくとも2行以上必要です。
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(XRange, YRange, x, LET(
   LnY, MAP(YRange, LAMBDA(val, LN(val))),
   Res, LINEST(LnY, XRange),
@@ -53,6 +53,6 @@ $ log (y) = log(y_0) + kx $ ※ 線形に変換
 ExpCurveSimple という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = ExpCurveSimple(A1:A10, B1:B10, A1:A20)
 ```

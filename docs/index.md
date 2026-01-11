@@ -2,7 +2,7 @@
 
 ## Types
 
-```Types
+```vb
   Type Date    : Number (y/M/d h:m)
   Type Time    : Number (h:m)
   Type Duration: Number ([h]:m)
@@ -11,7 +11,7 @@
 ## Time Calculations
 
 OverlapTime: Calculates overlapping duration between date/time ranges.
-```OverlapTime
+```vb
 Function OverlapTime (
   StateDate, EndDate: Date
   MinTime, MaxTime  : Time
@@ -19,21 +19,21 @@ Function OverlapTime (
 ```
 
 TimeToDecimal: Converts a time (TimeDate) to a decimal number representing hours.
-```TimeToDecimal
+```vb
 Function TimeToDecimal (
   T: Time
 ): Number (Decimal)
 ```
 
 DecimalToTime: Converts a decimal hour value back to a time (TimeDate).
-```DecimalToTime
+```vb
 Function DecimalToTime (
   F: Number (Decimal)
 ): Time
 ```
 
 MonthsBetween: Counts the number of months between two dates (supports end-of-month or day-before-next-month conventions).
-```MonthsBetween
+```vb
 Function MonthsBetween (
   StartDate, EndDate: Date
   EndOfMonth        : Boolean (optional)
@@ -42,14 +42,14 @@ Function MonthsBetween (
 ```
 
 LastDay: Returns the last day of a specified date.
-```LastDay
+```vb
 Function LastDay (
   TargetDate: Date
 ): Number
 ```
 
 DiffDaysTime: Subtracts days and times from a given date/time, with an optional daily time span.
-```DiffDaysTime
+```vb
 Function DiffDaysTime (
   StartDays : Number
   StartTime : Time
@@ -62,21 +62,21 @@ Function DiffDaysTime (
 ## Coordinate Calculations
 
 DistancePoint: Calculates the distance between two 2D points.
-```DistancePoint
+```vb
 Function DistancePoint (
   PointA, PointB: Point
 ): Point
 ```
 
 PolygonArea: Computes the area of a polygon defined by coordinates.
-```PolygonArea
+```vb
 Function PolygonArea (
   Points: VSTACK (Point)
 ): Number
 ```
 
 FootPoint: Returns the perpendicular intersection of a point onto a line and the distance from the point.
-```FootPoint
+```vb
 Function FootPoint(
   Line : HSTACK(Point, Point)
   Point: Point
@@ -84,7 +84,7 @@ Function FootPoint(
 ```
 
 CrossPoint: Returns the intersection point of two lines and a boolean indicating whether the intersection lies within the specified line segments.
-```CrossPoint
+```vb
 Function CrossPoint(
   LineA: HSTACK(Point, Point)
   LineB: HSTACK(Point, Point)
@@ -96,14 +96,14 @@ Function CrossPoint(
 PolygonArea handles arbitrary polygons, while TriangleArea functions handle triangles from sides and/or angles.
 
 TriangleAreaSSS: Calculates the area of a triangle from three side lengths.
-```TriangleAreaSSS
+```vb
 Function TriangleAreaSSS(
   A, B, C: Number
 ): Number
 ```
 
 TriangleAreaSAS: Calculates the area of a triangle from two sides and the angle between them.
-```TriangleAreaSAS
+```vb
 Function TriangleAreaSAS(
   A: Number
   R: Number (degrees)
@@ -112,7 +112,7 @@ Function TriangleAreaSAS(
 ```
 
 TriangleAreaASA: Calculates the area of a triangle from one side and its two end angles.
-```TriangleAreaASA
+```vb
 Function TriangleAreaASA(
   A     : Number
   LR, RR: Number (degrees)
@@ -120,7 +120,7 @@ Function TriangleAreaASA(
 ```
 
 SectionVolume: Calculate volume from SP cross section (average section method, prismoidal method, Toda correction)
-```SectionVolume
+```vb
 Function SectionVolume(
   SPRange, ARange: VSTACK (Number)
   UniformSpan    : Boolean (optional)
@@ -131,7 +131,7 @@ Function SectionVolume(
 ## Curve Calculations
 
 PowerCurve: Generates a power curve and computes its value.
-```PowerCurve
+```vb
 Function PowerCurve (
   XRange: VSTACK (Number)
   YRange: VSTACK (Number)
@@ -140,7 +140,7 @@ Function PowerCurve (
 ```
 
 ExpCurveSimple: Generates a simple exponential curve and computes its value.
-```ExpCurveSimple
+```vb
 Function ExpCurveSimple (
   XRange: VSTACK (Number)
   YRange: VSTACK (Number)
@@ -149,7 +149,7 @@ Function ExpCurveSimple (
 ```
 
 ExpCurveModified: Generates a modified exponential curve and computes its value.
-```ExpCurveModified
+```vb
 Function ExpCurveModified (
   XRange: VSTACK (Number)
   YRange: VSTACK (Number)
@@ -159,7 +159,7 @@ Function ExpCurveModified (
 ```
 
 LogisticCurve: Generates a logistic curve and computes its value.
-```LogisticCurve
+```vb
 Function LogisticCurve (
   XRange: VSTACK (Number)
   YRange: VSTACK (Number)
@@ -172,35 +172,35 @@ Function LogisticCurve (
 ## String Operations
 
 SmartSplit: Safely splits CSV/JSON-like strings, handling quotes and escape characters.
-```SmartSplit
+```vb
 Function SmartSplit (
   S: string
 ): VSTACK (string)
 ```
 
 SmartJoin: Joins a range into a CSV-like string, quoting values and escaping quotes as [""] .
-```SmartJoin
+```vb
 Function SmartJoin (
   Rng: VSTACK (string)
 ): string
 ```
 
 Extracts words separated by spaces.
-```Words
+```vb
 Function Words (
   Text: string
 ): HSTACK()string
 ```
 
 Converts a number into the corresponding Excel column label.
-```NumberToColumn
+```vb
 Function NumberToColumn (
   Num: Number
 ): string
 ```
 
 Converts an Excel column label into its corresponding number.
-```ColumnToNumber
+```vb
 Function ColumnToNumber (
   Str: string
 ): Number
@@ -208,7 +208,7 @@ Function ColumnToNumber (
 ## Search
 
 Returns the index number of the first value in a range that is closest to the threshold.
-```ClosestIndex
+```vb
 Function ClosestIndex (
   Values   : VSTACK (Number)
   Threshold: Number

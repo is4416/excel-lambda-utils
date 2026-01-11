@@ -17,7 +17,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(PointA, PointB, LET(
   AX, TAKE(PointA,,1),
   AY, TAKE(DROP(PointA,,1),,1),
@@ -41,7 +41,7 @@
 DistancePoint という名前で、ブックに登録しているものとします。
 > スピルにも対応しています。
 
-```excel
+```vb
 = DistancePoint(
   A2:B10,
   VSTACK(A3:B10, A2:B2)

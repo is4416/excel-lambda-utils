@@ -21,7 +21,7 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(S, LET(
   S_Count, LEN(S),
   S_List , SEQUENCE(S_Count),
@@ -93,7 +93,7 @@ CSV風の文字列を扱う際に、単純な `TEXTSPLIT` では対応できな�
 
 SmartSplit という名前でブックに登録しているものとします。
 
-```excel
+```vb
 = SmartSplit(A1)
 ```
 

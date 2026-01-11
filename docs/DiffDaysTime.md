@@ -23,7 +23,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(StartDays, StartTime, SubDays, SubTime, TimePerDay, LET(
   TPD, IF(ISOMITTED(TimePerDay), TIME(7, 45, 0), TimePerDay),
   T  , IF(StartTime < SubTime, TPD, 0) + StartTime - SubTime,
@@ -37,7 +37,7 @@
 DiffDaysTime という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = DiffDaysTime(30, TIME(0, 30, 0), 0, TIME(3, 0, 0),)
 ```
 

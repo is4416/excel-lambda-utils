@@ -15,7 +15,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(TargetDate, DATE(YEAR(TargetDate), MONTH(TargetDate) + 1, 0))
 ```
 
@@ -24,6 +24,6 @@
 LastDay という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = LastDay(A1:A3)
 ```

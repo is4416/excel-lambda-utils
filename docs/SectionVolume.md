@@ -27,7 +27,7 @@ SP断面から、体積を計算します
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(SPRange, ARange, UniformSpan, Alpha, LET(
   US, IF(ISOMITTED(UniformSpan),
     LET(

@@ -28,7 +28,7 @@ X列, Y列は少なくとも2行以上必要です。
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(XRange,YRange,L,Xo,x, LET(
   Limit, IF(ISOMITTED(L), ROUNDUP(MAX(YRange) * 1.01, -1), L),
   Y    , MAP(YRange, LAMBDA(val, LN((Limit - val) / val))),
@@ -65,6 +65,6 @@ $ log (\frac{L - y}{y}) = -k(x-x_0) $
 LogisticCurve という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = LogisticCurve(A1:A10, B1:B10, , , A1:A20)
 ```

@@ -15,7 +15,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(F, LET(
   TotalSec, ROUND(F * 3600, 0),
   H       , INT(TotalSec / 3600),
@@ -37,7 +37,7 @@
 DecimalToTime という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = TimeToDecimal(TIMEVALUE("1:45"))
 = DecimalToTime(1.75)
 ```

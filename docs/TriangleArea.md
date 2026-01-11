@@ -28,7 +28,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(A, B, C, LET(
   S, (A + B + C) / 2,
   IF((A < B + C) * (B < A + C) * (C < A + B),
@@ -49,7 +49,7 @@ TriangleAreaSSS という名前で、ブックに登録しているものとし�
 
 3辺 (A, B, C) から三角形の面積を求める
 
-```excel
+```vb
 = TriangleAreaSSS(A, B, C)
 ```
 
@@ -76,7 +76,7 @@ TriangleAreaSSS という名前で、ブックに登録しているものとし�
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(A, R, B, IF(
   (A <= 0) + (B <= 0) + (R >= 180),
   NA(),
@@ -90,7 +90,7 @@ TriangleAreaSAS という名前で、ブックに登録しているものとし�
 
 2辺 (A, B) とその間の角度 (R) から三角形の面積を求める
 
-```excel
+```vb
 = TriangleAreaSAS(A, R, B)
 ```
 
@@ -115,7 +115,7 @@ TriangleAreaSAS という名前で、ブックに登録しているものとし�
 - 角度は、度数 (degrees) で入力します
 
 **コード**
-```excel
+```vb
 = LAMBDA(A, LR, RR, IF(
   (A <= 0) + (LR <= 0) + (RR <= 0) + (LR + RR >= 180),
   NA(),
@@ -129,6 +129,6 @@ TriangleAreaASA という名前で、ブックに登録しているものとし�
 
 1辺 (A) と両端の角度 (LR, RR) から三角形の面積を求める
 
-```excel
+```vb
 = TriangleAreaASA(A, LR, RR)
 ```

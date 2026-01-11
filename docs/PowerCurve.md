@@ -22,7 +22,7 @@ X列, Y列は少なくとも2行以上必要です。
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(XRange, YRange, x, LET(
   LnX, MAP(XRange, LAMBDA(val, LN(val))),
   LnY, MAP(YRange, LAMBDA(val, LN(val))),
@@ -54,6 +54,6 @@ $ log (y) = log(a) + b * log(x) $ ※ 線形に変換
 PowerCurve という名前で、ブックに登録しているものとします
 > スピルにも対応しています
 
-```excel
+```vb
 = PowerCurve(A1:A10, B1:B10, A1:A20)
 ```

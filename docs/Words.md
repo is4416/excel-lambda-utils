@@ -17,7 +17,7 @@
 
 **コード**
 
-```excel
+```vb
 = LAMBDA(Text, LET(
   List, TEXTSPLIT(SUBSTITUTE(Text, "　", " "), " "),
   FILTER(List, List <> "")
@@ -30,6 +30,6 @@ Words という名前でブックに登録しているものとします。
 スピルには対応していません。  
 配列の配列を処理できない都合上、MAPでラップすることもできません。
 
-```excel
+```vb
 = Words(A1)
 ```
